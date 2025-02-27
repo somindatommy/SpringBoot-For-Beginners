@@ -8,3 +8,6 @@ API security with token-based authentication
 Each article in the series will explore these topics step by step, with this application serving as the hands-on example. The code in this repository will help you understand how to implement these concepts in a real-world Spring Boot application.
 
 Feel free to clone this repository and follow along with the articles to build your own Spring Boot microservices!
+
+### Articles
+- [Spring Boot for Beginners: How to Build a Simple Web Server](https://somindagamage.medium.com/spring-boot-for-beginners-how-to-build-a-simple-web-server-0070235ce459)
