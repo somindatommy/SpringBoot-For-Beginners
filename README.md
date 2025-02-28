@@ -11,3 +11,4 @@ Feel free to clone this repository and follow along with the articles to build y
 
 ### Articles
 - [Spring Boot for Beginners: How to Build a Simple Web Server](https://somindagamage.medium.com/spring-boot-for-beginners-how-to-build-a-simple-web-server-0070235ce459)
+- [Spring Boot for Beginners: Adding a database layer (Part 1)](https://somindagamage.medium.com/spring-boot-for-beginners-adding-a-database-layer-part-1-fef164ec0edd)
