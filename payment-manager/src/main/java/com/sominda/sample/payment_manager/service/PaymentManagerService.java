@@ -1,30 +1,30 @@
 package com.sominda.sample.payment_manager.service;
 
 import com.sominda.sample.payment_manager.model.Payment;
+import com.sominda.sample.payment_manager.repository.Database;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class PaymentManagerService {
 
-    private final Map<String, Payment> database = new HashMap<>();
+    @Autowired
+    Database database;
 
     public void initiatePayment(Payment payment) {
 
-        database.put(payment.getPaymentId(), payment);
+        database.addPayment(payment);
     }
 
     public Payment getPaymentByID(String paymentId) {
 
-        return database.get(paymentId);
+        return database.getPaymentById(paymentId);
     }
 
     public List<Payment> getAllPayments() {
 
-        return new ArrayList<>(database.values());
+        return database.getAllPayments();
     }
 }
