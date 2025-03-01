@@ -16,7 +16,9 @@ Feel free to clone this repository and follow along with the articles to build y
 - [Spring Boot for Beginners: Adding a database layer (Part 1)](https://somindagamage.medium.com/spring-boot-for-beginners-adding-a-database-layer-part-1-fef164ec0edd)
   - Branch: [dbs-part-1](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/dbs-part-1)
 - [Spring Boot for Beginners: Adding a database layer (Part 2) : With JPA and Hibernate](https://somindagamage.medium.com/spring-boot-for-beginners-adding-a-database-layer-part-2-with-jpa-and-hibernate-03f6fd0cb238)
-    - Branch: [dbs-part-2](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/dbs-part-2-jpa)
+  - Branch: [dbs-part-2](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/dbs-part-2-jpa)
+- [Spring Boot for Beginners: Handling exceptions](https://somindagamage.medium.com/spring-boot-for-beginners-handling-exceptions-82efad3061cd)
+  - Branch: [exception-handling](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/exception-handling)
 
 ### Api Collection
 The collection in the following location has the updated collection in the main branch. If you wish to checkout a 
