@@ -1,5 +1,6 @@
 package com.sominda.sample.payment_manager.repository.impl;
 
+import com.sominda.sample.payment_manager.exception.PaymentManagerClientException;
 import com.sominda.sample.payment_manager.model.Payment;
 import com.sominda.sample.payment_manager.model.Status;
 import com.sominda.sample.payment_manager.repository.Database;
@@ -32,7 +33,9 @@ public class SQLRepository implements Database {
     public Payment getPaymentById(String paymentId) {
 
         System.out.println("Fetching a payment from id SQLRepository");
-        return paymentsJPARepository.findById(paymentId).orElse(null);
+        return paymentsJPARepository.findById(paymentId)
+                .orElseThrow(() -> new PaymentManagerClientException("01", "No payment found", "No payment found " +
+                        "with the given id: " + paymentId));
     }
 
     @Override
