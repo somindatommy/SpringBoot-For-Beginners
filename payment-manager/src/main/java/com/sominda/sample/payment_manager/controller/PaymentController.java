@@ -46,4 +46,11 @@ public class PaymentController {
         paymentManagerService.initiatePayment(payment);
         return new PaymentInitiatorResponse(payment.getPaymentId(), payment.getStatus());
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/status/{status}")
+    public List<Payment> getPaymentsByStatus(@PathVariable String status) {
+
+        return paymentManagerService.getPaymentsByStatus(status);
+    }
 }

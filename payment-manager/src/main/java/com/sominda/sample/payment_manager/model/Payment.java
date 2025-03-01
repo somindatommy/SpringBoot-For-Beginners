@@ -1,5 +1,11 @@
 package com.sominda.sample.payment_manager.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,13 +17,28 @@ import java.util.concurrent.atomic.AtomicLong;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity(name = "Payment")
+@Table(name = "payments")
 public class Payment {
 
+    @Id
+    @Column(name = "payment_id", unique = true, nullable = false)
     private String paymentId;
+
+    @Column(name = "initiator_id", nullable = false)
     private String initiatorId;
+
+    @Column(name = "receiver_id", nullable = false)
     private String receiverId;
+
+    @Column(name = "amount", nullable = false)
     private double amount;
+
+    @Column(name = "initiated_time", nullable = false)
     private LocalDateTime initiatedTime;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
     private Status status;
 
     private static final AtomicLong COUNTER = new AtomicLong(1);

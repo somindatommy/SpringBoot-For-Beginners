@@ -72,7 +72,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/payments/PAY-20250227-220357-126871628939123-00001",
+					"raw": "http://localhost:8080/api/v1/payments/PAY-20250301-103929-126871628939123-00002",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -82,7 +82,33 @@
 						"api",
 						"v1",
 						"payments",
-						"PAY-20250227-220357-126871628939123-00001"
+						"PAY-20250301-103929-126871628939123-00002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get payments by status",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/payments/status/SUCCESS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"payments",
+						"status",
+						"SUCCESS"
 					]
 				}
 			},
