@@ -19,6 +19,9 @@ Feel free to clone this repository and follow along with the articles to build y
   - Branch: [dbs-part-2](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/dbs-part-2-jpa)
 - [Spring Boot for Beginners: Handling exceptions](https://somindagamage.medium.com/spring-boot-for-beginners-handling-exceptions-82efad3061cd)
   - Branch: [exception-handling](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/exception-handling)
+- [Spring Boot for Beginners: Securing the APIs with tokens](https://somindagamage.medium.com/spring-boot-for-beginners-securing-the-apis-with-tokens-586d3c13700d)
+  - Branch: [secure-api-jwt](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/secure-api-jwt)
+
 
 ### Api Collection
 The collection in the following location has the updated collection in the main branch. If you wish to checkout a 
