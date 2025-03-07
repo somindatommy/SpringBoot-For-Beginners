@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.4.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.sominda.sample.swagger</groupId>
+	<artifactId>payment-manager-swagger</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>payment-manager-swagger</name>
+	<description>Demo project for Spring Boot</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Swagger api generation-->
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>2.2.28</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openapitools</groupId>
+			<artifactId>jackson-databind-nullable</artifactId>
+			<version>0.2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!--Configuration for API definitions-->
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>7.12.0</version>
+				<executions>
+					<execution>
+						<id>generate-payment-server-apis</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<!--Where the yaml is located-->
+							<inputSpec>${project.basedir}/src/main/resources/payment-api.yaml</inputSpec>
+							<!--Specifies the type of code generator to use-->
+							<generatorName>spring</generatorName>
+							<!--Where the generated files are located-->
+							<!--We can set this to "." where the location will be the root-->
+							<!--<output>${project.basedir}/generated-sources/openapi</output>-->
+							<!--If we use the above config, we can take the generated files outside the target. But then make sure to comment this after generating the stubs-->
+							<output>${project.build.directory}/generated-sources/openapi</output>
+							<!--Structure from the out out directly. Notice this ends with api-->
+							<apiPackage>com.sominda.sample.swagger.payment_manager_swagger.api</apiPackage>
+							<!--Model Structure from the out out directly. Notice this ends with model-->
+							<modelPackage>com.sominda.sample.swagger.payment_manager_swagger.model</modelPackage>
+							<configOptions>
+								<packageName>com.sominda.sample.swagger.payment_manager_swagger</packageName>
+								<basePackage>com.sominda.sample.swagger.payment_manager_swagger</basePackage>
+								<configPackage>com.sominda.sample.swagger.payment_manager_swagger</configPackage>
+								<dateLibrary>java21</dateLibrary>
+								<!--If set to false, then generate will do the controller impl and we have to extend
+								the delegate-->
+								<!--we can then implement the interface in your own service classes.-->
+								<interfaceOnly>true</interfaceOnly>
+								<!--When true, it generates a separate delegate class for business logic instead of implementing logic directly in the API class.-->
+								<!--This has event when interfaceOnly is FALSE-->
+								<delegatePattern>true</delegatePattern>
+								<!--When true, API methods return ResponseEntity<T> instead of T-->
+								<useResponseEntity>true</useResponseEntity>
+								<useSpringBoot3>true</useSpringBoot3>
+								<skipOverwrite>true</skipOverwrite>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!--To make sure the generated code is included in the project-->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.6.0</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-sources/openapi/src/main/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
