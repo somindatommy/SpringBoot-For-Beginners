@@ -21,6 +21,8 @@ Feel free to clone this repository and follow along with the articles to build y
   - Branch: [exception-handling](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/exception-handling)
 - [Spring Boot for Beginners: Securing the APIs with tokens](https://somindagamage.medium.com/spring-boot-for-beginners-securing-the-apis-with-tokens-586d3c13700d)
   - Branch: [secure-api-jwt](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/secure-api-jwt)
+- [Spring Boot for Beginners: Generate Spring Boot REST API stubs with Swagger](https://somindagamage.medium.com/spring-boot-for-beginners-generate-spring-boot-rest-api-stubs-with-swagger-66c590cc7616)
+  - Branch: [swagger-integration ](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/swagger-integration)
 
 
 ### Api Collection
