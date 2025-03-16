@@ -1,0 +1,27 @@
+# This needs to run from the project root. That is SpringBoot-For-Beginners directory
+# Use a Maven image to build the JAR. Use alpine to reduce the size of the image.
+FROM maven:3.9.9-eclipse-temurin-21-alpine AS builder
+
+WORKDIR /app
+
+# Copy the Maven project files. Use relative paths from SpringBoot-For-Beginners directory
+COPY payment-manager/pom.xml .
+COPY payment-manager/src ./src
+
+# Build the application. No need to run tests.
+RUN mvn clean package -DskipTests
+
+# Use a minimal JRE image to run the app
+FROM eclipse-temurin:21-jre-alpine
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the built JAR from the builder stage
+COPY --from=builder /app/target/*.jar payment_manager.jar
+
+# Expose the application port
+EXPOSE 8080
+
+# Run the application
+ENTRYPOINT ["java", "-Dspring.config.location=file:/config/application.properties", "-jar", "payment_manager.jar"]
