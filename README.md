@@ -23,6 +23,8 @@ Feel free to clone this repository and follow along with the articles to build y
   - Branch: [secure-api-jwt](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/secure-api-jwt)
 - [Spring Boot for Beginners: Generate Spring Boot REST API stubs with Swagger](https://somindagamage.medium.com/spring-boot-for-beginners-generate-spring-boot-rest-api-stubs-with-swagger-66c590cc7616)
   - Branch: [swagger-integration ](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/swagger-integration)
+- [Spring Boot for Beginners: A Step-by-Step Guide to Deploying in Docker](https://somindagamage.medium.com/spring-boot-for-beginners-deploying-the-server-in-docker-fee07992adc2)
+  - Branch: [deploy_in_docker](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/deploy_in_docker)
 
 
 ### Api Collection
