@@ -26,6 +26,10 @@ Feel free to clone this repository and follow along with the articles to build y
 - [Spring Boot for Beginners: A Step-by-Step Guide to Deploying in Docker](https://somindagamage.medium.com/spring-boot-for-beginners-deploying-the-server-in-docker-fee07992adc2)
   - Branch: [deploy_in_docker](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/deploy_in_docker)
 
+#### Deploying in cloud
+- [Deploying a Spring Boot Application on Choreo](https://somindagamage.medium.com/deploying-a-spring-boot-application-on-choreo-c37bf72d353d)
+  - Branch: [choreo-integration](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/choreo-integration)
+
 
 ### Api Collection
 The collection in the following location has the updated collection in the main branch. If you wish to checkout a 
