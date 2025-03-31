@@ -29,6 +29,8 @@ Feel free to clone this repository and follow along with the articles to build y
 #### Deploying in cloud
 - [Deploying a Spring Boot Application on Choreo](https://somindagamage.medium.com/deploying-a-spring-boot-application-on-choreo-c37bf72d353d)
   - Branch: [choreo-integration](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/choreo-integration)
+- [Role-Based Access Control with Choreo and Asgardeo](https://somindagamage.medium.com/role-based-access-control-with-choreo-and-asgardeo-606d72a7353e)
+  - Branch: [choreo-integration](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/choreo-integration)
 
 ### Api Collection
 The collection in the following location has the updated collection in the main branch. If you wish to checkout a 
