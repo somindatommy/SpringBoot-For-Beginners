@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.sominda.payments.server.generated";
+
+package com.sominda.grpc.server.payments;
+
+enum Status {
+  PENDING = 0;
+  PROCESSING = 1;
+  SUCCESS = 2;
+  FAILED = 3;
+}
+
+// Request to initiate a payment.
+message PaymentRequest {
+  string initiatorId = 1;
+  string receiverId = 2;
+  double amount = 3;
+}
+
+// Response after initiating a payment.
+message InitiatePaymentResponse {
+  string paymentId = 1;
+  Status status = 2;
+}
+
+// Response to represent a payment object.
+message PaymentResponse {
+  string paymentId = 1;
+  string initiatorId = 2;
+  string receiverId = 3;
+  double amount = 4;
+  string initiatedTime = 5;
+  Status status = 6;
+}
+
+// Request to get all payments.
+message GetAllPaymentsRequest {
+// Defining an empty object in case any params are needed in the future.
+}
+
+// Response returning a list of payments.
+message GetPaymentsResponse {
+
+  repeated PaymentResponse payments = 1;
+}
+
+// Get all payments by payment status.
+message GetPaymentsByStatusRequest {
+  Status status = 1;
+}
+
+// Get payment by id request.
+message GetPaymentByIdRequest {
+  string paymentId = 1;
+}
+
+// Server exposed APIs.
+service PaymentServer {
+
+  // Define unary operations.
+  rpc getPayments(GetAllPaymentsRequest) returns (GetPaymentsResponse);
+  rpc getPaymentById(GetPaymentByIdRequest) returns (PaymentResponse);
+  rpc getPaymentsByStatus(GetPaymentsByStatusRequest) returns (GetPaymentsResponse);
+  rpc initiatePayment(PaymentRequest) returns (InitiatePaymentResponse);
+}
