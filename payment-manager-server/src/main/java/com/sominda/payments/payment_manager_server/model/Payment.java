@@ -1,5 +1,6 @@
 package com.sominda.payments.payment_manager_server.model;
 
+import com.sominda.payments.server.generated.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,7 +1,7 @@
 package com.sominda.payments.payment_manager_server.repository;
 
 import com.sominda.payments.payment_manager_server.model.Payment;
-import com.sominda.payments.payment_manager_server.model.Status;
+import com.sominda.payments.server.generated.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

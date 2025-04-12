@@ -6,11 +6,20 @@ import com.sominda.payments.server.generated.Status;
 
 import java.time.format.DateTimeFormatter;
 
-public class Utils {
+/**
+ * Class for mapping Payment object with PaymentResponse proto msg.
+ */
+public class PaymentMapper {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    public static PaymentResponse buildGrpcPaymentResponse(Payment payment) {
+    /**
+     * This method maps an instance of Payment to the PaymentResponse message.
+     *
+     * @param payment Instance of Payment.
+     * @return Instance of PaymentResponse.
+     */
+    public static PaymentResponse toProto(Payment payment) {
         // Format initiatedTime as string
         String formattedTime = payment.getInitiatedTime().format(formatter);
 
@@ -22,10 +31,5 @@ public class Utils {
                 .setInitiatedTime(formattedTime)
                 .setStatus(Status.valueOf(payment.getStatus().name()))
                 .build();
-    }
-
-    public static com.sominda.payments.payment_manager_server.model.Status getStatus(Status status) {
-
-        return com.sominda.payments.payment_manager_server.model.Status.valueOf(status.name());
     }
 }

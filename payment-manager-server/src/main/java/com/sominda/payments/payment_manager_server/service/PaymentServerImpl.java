@@ -10,7 +10,6 @@ import com.sominda.payments.server.generated.PaymentResponse;
 import com.sominda.payments.server.generated.PaymentServerGrpc;
 import com.sominda.payments.payment_manager_server.model.Payment;
 import com.sominda.payments.payment_manager_server.repository.PaymentsJPARepository;
-import com.sominda.payments.server.generated.Status;
 import io.grpc.stub.StreamObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.grpc.server.service.GrpcService;
@@ -19,8 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.sominda.payments.payment_manager_server.util.Utils.buildGrpcPaymentResponse;
-import static com.sominda.payments.payment_manager_server.util.Utils.getStatus;
+import static com.sominda.payments.payment_manager_server.util.PaymentMapper.toProto;
 
 @GrpcService
 public class PaymentServerImpl extends PaymentServerGrpc.PaymentServerImplBase {
@@ -35,7 +33,7 @@ public class PaymentServerImpl extends PaymentServerGrpc.PaymentServerImplBase {
         List<PaymentResponse> paymentResponses = new ArrayList<>();
 
         for (Payment payment : payments) {
-            paymentResponses.add(buildGrpcPaymentResponse(payment));
+            paymentResponses.add(toProto(payment));
         }
         GetPaymentsResponse.Builder builder = GetPaymentsResponse.newBuilder();
         builder.addAllPayments(paymentResponses);
@@ -49,7 +47,7 @@ public class PaymentServerImpl extends PaymentServerGrpc.PaymentServerImplBase {
 
         Optional<Payment> payments = paymentsJPARepository.findById(request.getPaymentId());
         if (payments.isPresent()) {
-            responseObserver.onNext(buildGrpcPaymentResponse(payments.get()));
+            responseObserver.onNext(toProto(payments.get()));
             responseObserver.onCompleted();
         }
         // Handle error.
@@ -59,11 +57,11 @@ public class PaymentServerImpl extends PaymentServerGrpc.PaymentServerImplBase {
     public void getPaymentsByStatus(GetPaymentsByStatusRequest request,
                                     StreamObserver<GetPaymentsResponse> responseObserver) {
 
-        List<Payment> payments = paymentsJPARepository.findAllPaymentsByStatus(getStatus(request.getStatus()));
+        List<Payment> payments = paymentsJPARepository.findAllPaymentsByStatus(request.getStatus());
         List<PaymentResponse> paymentResponses = new ArrayList<>();
 
         for (Payment payment : payments) {
-            paymentResponses.add(buildGrpcPaymentResponse(payment));
+            paymentResponses.add(toProto(payment));
         }
         GetPaymentsResponse.Builder builder = GetPaymentsResponse.newBuilder();
         builder.addAllPayments(paymentResponses);
@@ -79,16 +77,8 @@ public class PaymentServerImpl extends PaymentServerGrpc.PaymentServerImplBase {
         paymentsJPARepository.save(payment);
         InitiatePaymentResponse.Builder builder = InitiatePaymentResponse.newBuilder();
         builder.setPaymentId(payment.getPaymentId());
-        builder.setStatus(convertStatus(payment.getStatus()));
+        builder.setStatus(payment.getStatus());
         responseObserver.onNext(builder.build());
         responseObserver.onCompleted();
-
-
-    }
-
-    //
-    private Status convertStatus(com.sominda.payments.payment_manager_server.model.Status status) {
-
-        return Status.valueOf(status.name());
     }
 }
