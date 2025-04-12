@@ -25,6 +25,8 @@ Feel free to clone this repository and follow along with the articles to build y
   - Branch: [swagger-integration ](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/swagger-integration)
 - [Spring Boot for Beginners: A Step-by-Step Guide to Deploying in Docker](https://somindagamage.medium.com/spring-boot-for-beginners-deploying-the-server-in-docker-fee07992adc2)
   - Branch: [deploy_in_docker](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/deploy_in_docker)
+- [Spring Boot for Beginners: gRPC with Spring Boot](https://somindagamage.medium.com/spring-boot-for-beginners-grpc-with-spring-boot-9de4ae2a0937)
+  - Branch: [spring_grpc](https://github.com/somindatommy/SpringBoot-For-Beginners/tree/spring_grpc)
 
 #### Deploying in cloud
 - [Deploying a Spring Boot Application on Choreo](https://somindagamage.medium.com/deploying-a-spring-boot-application-on-choreo-c37bf72d353d)
