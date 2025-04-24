@@ -33,7 +33,7 @@ public function main() returns error? {
             "accept": "*/*"
         };
 
-        string endpointPath = "default/payment-manager/v1.0/api/v1/payments";
+        string endpointPath = "/default/payment-manager/v1.0/api/v1/payments";
 
         // Step 4: Make the GET request using execute() to include custom headers
         http:Response apiResp = check apiClient->get(endpointPath, headers);
